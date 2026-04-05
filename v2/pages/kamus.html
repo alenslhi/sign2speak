@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kamus - Sign2Speak v2</title>
+    <meta
+      name="description"
+      content="Kamus dasar bahasa isyarat: alfabet, angka, dan salam."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-page="kamus">
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a href="../index.html" class="brand" aria-label="Sign2Speak beranda">
+          <span class="brand-badge">S2S</span>
+          <span class="brand-text">Sign2Speak</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Buka menu"
+          aria-expanded="false"
+          aria-controls="primaryNav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="primary-nav" id="primaryNav" aria-label="Navigasi utama">
+          <a href="../index.html">Beranda</a>
+          <a href="./kamus.html" class="active">Kamus</a>
+          <a href="./latihan.html">Latihan</a>
+          <a href="./tentang.html">Tentang</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Kamus Dasar</p>
+            <h1>Kamus Bahasa Isyarat</h1>
+            <p>Cari materi berdasarkan kata, lalu pelajari deskripsi gerakannya.</p>
+          </div>
+
+          <div class="toolbar">
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Cari kata... contoh: halo, angka, A"
+              aria-label="Cari kata isyarat"
+            />
+            <select id="categoryFilter" aria-label="Filter kategori">
+              <option value="all">Semua kategori</option>
+              <option value="alfabet">Alfabet</option>
+              <option value="angka">Angka</option>
+              <option value="salam">Salam</option>
+            </select>
+          </div>
+
+          <div id="dictionaryGrid" class="cards-grid cards-grid-4"></div>
+          <p id="emptyState" class="empty-state hidden">
+            Tidak ada data yang cocok dengan pencarian kamu.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© 2026 Sign2Speak v2</p>
+      </div>
+    </footer>
+
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>
