@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latihan - Sign2Speak v2</title>
+    <meta
+      name="description"
+      content="Latihan kuis dasar bahasa isyarat dengan skor."
+    />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body data-page="latihan">
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a href="../index.html" class="brand" aria-label="Sign2Speak beranda">
+          <span class="brand-badge">S2S</span>
+          <span class="brand-text">Sign2Speak</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Buka menu"
+          aria-expanded="false"
+          aria-controls="primaryNav"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="primary-nav" id="primaryNav" aria-label="Navigasi utama">
+          <a href="../index.html">Beranda</a>
+          <a href="./kamus.html">Kamus</a>
+          <a href="./latihan.html" class="active">Latihan</a>
+          <a href="./tentang.html">Tentang</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="section">
+        <div class="container quiz-wrap">
+          <div class="section-head">
+            <p class="eyebrow">Latihan Interaktif</p>
+            <h1>Kuis Dasar Bahasa Isyarat</h1>
+            <p>Jawab pertanyaan berikut untuk mengukur pemahamanmu.</p>
+          </div>
+
+          <div class="quiz-card">
+            <div class="quiz-meta">
+              <span id="quizProgress">Soal 1/1</span>
+              <span id="quizScore">Skor: 0</span>
+            </div>
+            <h2 id="quizQuestion">Memuat soal...</h2>
+            <div id="quizOptions" class="quiz-options"></div>
+
+            <div class="quiz-actions">
+              <button id="nextQuestionBtn" class="btn btn-primary" disabled>
+                Soal Berikutnya
+              </button>
+              <button id="restartQuizBtn" class="btn btn-outline hidden">
+                Ulangi Kuis
+              </button>
+            </div>
+
+            <p id="quizFeedback" class="quiz-feedback"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© 2026 Sign2Speak v2</p>
+      </div>
+    </footer>
+
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>
