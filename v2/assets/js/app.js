@@ -1,152 +1,209 @@
-window.S2S_DATA = {
-  dictionary: [
-    {
-      id: 1,
-      kata: "A",
-      kategori: "alfabet",
-      deskripsi: "Isyarat huruf A.",
-      image: "../assets/img/kamus/A.png",
-      alt: "Isyarat huruf A"
-    },
-    {
-      id: 2,
-      kata: "B",
-      kategori: "alfabet",
-      deskripsi: "Isyarat huruf B.",
-      image: "../assets/img/kamus/B.png",
-      alt: "Isyarat huruf B"
-    },
-    {
-      id: 3,
-      kata: "K",
-      kategori: "alfabet",
-      deskripsi: "Isyarat huruf K.",
-      image: "../assets/img/kamus/K.png",
-      alt: "Isyarat huruf K"
-    },
-    {
-      id: 4,
-      kata: "M",
-      kategori: "alfabet",
-      deskripsi: "Isyarat huruf M.",
-      image: "../assets/img/kamus/M.png",
-      alt: "Isyarat huruf M"
-    },
-    {
-      id: 5,
-      kata: "1",
-      kategori: "angka",
-      deskripsi: "Isyarat angka 1.",
-      image: "../assets/img/kamus/1.png",
-      alt: "Isyarat angka 1"
-    },
-    {
-      id: 6,
-      kata: "2",
-      kategori: "angka",
-      deskripsi: "Isyarat angka 2.",
-      image: "../assets/img/kamus/2.png",
-      alt: "Isyarat angka 2"
-    },
-    {
-      id: 7,
-      kata: "3",
-      kategori: "angka",
-      deskripsi: "Isyarat angka 3.",
-      image: "../assets/img/kamus/3.png",
-      alt: "Isyarat angka 3"
-    },
-    {
-      id: 8,
-      kata: "10",
-      kategori: "angka",
-      deskripsi: "Isyarat angka 10.",
-      image: "../assets/img/kamus/10.png",
-      alt: "Isyarat angka 10"
-    },
-    {
-      id: 9,
-      kata: "Bagaimana",
-      kategori: "salam",
-      deskripsi: "Isyarat kata 'Bagaimana'.",
-      image: "../assets/img/kamus/bagaimana.jpg",
-      alt: "Isyarat kata Bagaimana"
-    },
-    {
-      id: 10,
-      kata: "Dimana",
-      kategori: "salam",
-      deskripsi: "Isyarat kata 'Dimana'.",
-      image: "../assets/img/kamus/dimana.jpg",
-      alt: "Isyarat kata Dimana"
-    },
-    {
-      id: 11,
-      kata: "Hati-hati",
-      kategori: "salam",
-      deskripsi: "Isyarat kata 'Hati-hati'.",
-      image: "../assets/img/kamus/hati hati.jpg",
-      alt: "Isyarat kata Hati-hati"
-    },
-    {
-      id: 12,
-      kata: "Kamu",
-      kategori: "salam",
-      deskripsi: "Isyarat kata 'Kamu'.",
-      image: "../assets/img/kamus/kamu.jpg",
-      alt: "Isyarat kata Kamu"
-    },
-    {
-      id: 13,
-      kata: "Lupa",
-      kategori: "salam",
-      deskripsi: "Isyarat kata 'Lupa'.",
-      image: "../assets/img/kamus/lupa.jpg",
-      alt: "Isyarat kata Lupa"
-    },
-    {
-      id: 14,
-      kata: "Maaf",
-      kategori: "salam",
-      deskripsi: "Isyarat kata 'Maaf'.",
-      image: "../assets/img/kamus/maaf.jpg",
-      alt: "Isyarat kata Maaf"
-    },
-    {
-      id: 15,
-      kata: "Siapa",
-      kategori: "salam",
-      deskripsi: "Isyarat kata 'Siapa'.",
-      image: "../assets/img/kamus/siapa.jpg",
-      alt: "Isyarat kata Siapa"
-    },
-    {
-      id: 16,
-      kata: "Terima Kasih",
-      kategori: "salam",
-      deskripsi: "Isyarat kata 'Terima Kasih'.",
-      image: "../assets/img/kamus/terimakasih.jpg",
-      alt: "Isyarat kata Terima Kasih"
+(function () {
+  const navToggle = document.getElementById("navToggle");
+  const primaryNav = document.getElementById("primaryNav");
+
+  if (navToggle && primaryNav) {
+    navToggle.addEventListener("click", function () {
+      const isOpen = primaryNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", function (event) {
+      const isClickInsideNav = primaryNav.contains(event.target);
+      const isClickOnToggle = navToggle.contains(event.target);
+
+      if (!isClickInsideNav && !isClickOnToggle && primaryNav.classList.contains("open")) {
+        primaryNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  const currentPage = document.body.getAttribute("data-page");
+
+  if (currentPage === "kamus") {
+    setupDictionaryPage();
+  }
+
+  if (currentPage === "latihan") {
+    setupQuizPage();
+  }
+
+  function setupDictionaryPage() {
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const dictionaryGrid = document.getElementById("dictionaryGrid");
+    const emptyState = document.getElementById("emptyState");
+    const data = window.S2S_DATA?.dictionary || [];
+
+    function render(items) {
+      dictionaryGrid.innerHTML = "";
+
+      if (!items.length) {
+        emptyState.classList.remove("hidden");
+        return;
+      }
+
+      emptyState.classList.add("hidden");
+
+      items.forEach(function (item) {
+        const card = document.createElement("article");
+        card.className = "card kamus-card";
+
+        card.innerHTML = `
+          <div class="kamus-image-wrap">
+            <img
+              class="kamus-image"
+              src="${item.image}"
+              alt="${item.alt || item.kata}"
+              loading="lazy"
+              onerror="this.src='../assets/img/kamus/no-image.png';"
+            />
+          </div>
+          <span class="badge">${item.kategori}</span>
+          <h3>${item.kata}</h3>
+          <p>${item.deskripsi}</p>
+        `;
+
+        dictionaryGrid.appendChild(card);
+      });
     }
-  ],
-  quiz: [
-    {
-      id: 1,
-      question: "Isyarat menyapa dari dekat dahi biasanya berarti?",
-      options: ["Halo", "Maaf", "Sampai Jumpa", "Tolong"],
-      answer: "Halo"
-    },
-    {
-      id: 2,
-      question: "Jika menunjukkan jari telunjuk dan jari tengah, itu angka?",
-      options: ["1", "2", "3", "5"],
-      answer: "2"
-    },
-    {
-      id: 3,
-      question: "Gerakan dari dagu ke depan sering berarti?",
-      options: ["Permisi", "Terima Kasih", "Belajar", "Nama"],
-      answer: "Terima Kasih"
+
+    function filterData() {
+      const keyword = searchInput.value.trim().toLowerCase();
+      const category = categoryFilter.value;
+
+      const filtered = data.filter(function (item) {
+        const matchKeyword =
+          item.kata.toLowerCase().includes(keyword) ||
+          item.deskripsi.toLowerCase().includes(keyword);
+        const matchCategory = category === "all" || item.kategori === category;
+
+        return matchKeyword && matchCategory;
+      });
+
+      render(filtered);
     }
-  ]
-};
+
+    searchInput.addEventListener("input", filterData);
+    categoryFilter.addEventListener("change", filterData);
+
+    render(data);
+  }
+
+  function setupQuizPage() {
+    const STORAGE_KEY = "s2s_best_score_v1";
+    const quizData = window.S2S_DATA?.quiz || [];
+    const questionEl = document.getElementById("quizQuestion");
+    const optionsEl = document.getElementById("quizOptions");
+    const progressEl = document.getElementById("quizProgress");
+    const scoreEl = document.getElementById("quizScore");
+    const feedbackEl = document.getElementById("quizFeedback");
+    const nextBtn = document.getElementById("nextQuestionBtn");
+    const restartBtn = document.getElementById("restartQuizBtn");
+
+    let currentIndex = 0;
+    let score = 0;
+    let answered = false;
+    let bestScore = getBestScore();
+
+    function getBestScore() {
+      const value = localStorage.getItem(STORAGE_KEY);
+      const parsed = Number(value);
+      return Number.isFinite(parsed) ? parsed : 0;
+    }
+
+    function saveBestScore(value) {
+      localStorage.setItem(STORAGE_KEY, String(value));
+    }
+
+    function setScoreText() {
+      scoreEl.textContent = `Skor: ${score} | Best: ${bestScore}`;
+    }
+
+    function renderQuestion() {
+      answered = false;
+      feedbackEl.textContent = "";
+      nextBtn.disabled = true;
+
+      const item = quizData[currentIndex];
+      progressEl.textContent = `Soal ${currentIndex + 1}/${quizData.length}`;
+      setScoreText();
+      questionEl.textContent = item.question;
+      optionsEl.innerHTML = "";
+
+      item.options.forEach(function (option) {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.type = "button";
+        btn.textContent = option;
+
+        btn.addEventListener("click", function () {
+          if (answered) return;
+          answered = true;
+
+          const correct = option === item.answer;
+
+          if (correct) {
+            score += 10;
+            btn.classList.add("correct");
+            feedbackEl.textContent = "Benar. Bagus, lanjutkan.";
+          } else {
+            btn.classList.add("wrong");
+            feedbackEl.textContent = `Kurang tepat. Jawaban benar: ${item.answer}`;
+          }
+
+          Array.from(optionsEl.children).forEach(function (child) {
+            child.disabled = true;
+            if (child.textContent === item.answer) {
+              child.classList.add("correct");
+            }
+          });
+
+          setScoreText();
+          nextBtn.disabled = false;
+        });
+
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function finishQuiz() {
+      if (score > bestScore) {
+        bestScore = score;
+        saveBestScore(bestScore);
+      }
+
+      questionEl.textContent = "Kuis selesai.";
+      optionsEl.innerHTML = "";
+      progressEl.textContent = `Soal ${quizData.length}/${quizData.length}`;
+      feedbackEl.textContent = `Skor akhir kamu: ${score}. Skor terbaik: ${bestScore}.`;
+      nextBtn.classList.add("hidden");
+      restartBtn.classList.remove("hidden");
+      setScoreText();
+    }
+
+    nextBtn.addEventListener("click", function () {
+      if (currentIndex < quizData.length - 1) {
+        currentIndex += 1;
+        renderQuestion();
+      } else {
+        finishQuiz();
+      }
+    });
+
+    restartBtn.addEventListener("click", function () {
+      currentIndex = 0;
+      score = 0;
+      nextBtn.classList.remove("hidden");
+      restartBtn.classList.add("hidden");
+      renderQuestion();
+    });
+
+    if (quizData.length) {
+      renderQuestion();
+    } else {
+      questionEl.textContent = "Data kuis belum tersedia.";
+    }
+  }
+})();
