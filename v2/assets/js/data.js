@@ -4,49 +4,129 @@ window.S2S_DATA = {
       id: 1,
       kata: "A",
       kategori: "alfabet",
-      deskripsi: "Bentuk tangan mengepal dengan ibu jari di samping.",
-      image: "../assets/img/kamus/alfabet-a.svg",
-      alt: "Ilustrasi isyarat huruf A"
+      deskripsi: "Isyarat huruf A.",
+      image: "../assets/img/kamus/A.png",
+      alt: "Isyarat huruf A"
     },
     {
       id: 2,
       kata: "B",
       kategori: "alfabet",
-      deskripsi: "Telapak tangan terbuka, jari rapat dan tegak.",
-      image: "../assets/img/kamus/alfabet-b.svg",
-      alt: "Ilustrasi isyarat huruf B"
+      deskripsi: "Isyarat huruf B.",
+      image: "../assets/img/kamus/B.png",
+      alt: "Isyarat huruf B"
     },
     {
       id: 3,
-      kata: "1",
-      kategori: "angka",
-      deskripsi: "Tunjukkan jari telunjuk ke atas.",
-      image: "../assets/img/kamus/angka-1.svg",
-      alt: "Ilustrasi isyarat angka 1"
+      kata: "K",
+      kategori: "alfabet",
+      deskripsi: "Isyarat huruf K.",
+      image: "../assets/img/kamus/K.png",
+      alt: "Isyarat huruf K"
     },
     {
       id: 4,
-      kata: "2",
-      kategori: "angka",
-      deskripsi: "Tunjukkan dua jari: telunjuk dan tengah.",
-      image: "../assets/img/kamus/angka-2.svg",
-      alt: "Ilustrasi isyarat angka 2"
+      kata: "M",
+      kategori: "alfabet",
+      deskripsi: "Isyarat huruf M.",
+      image: "../assets/img/kamus/M.png",
+      alt: "Isyarat huruf M"
     },
     {
       id: 5,
-      kata: "Halo",
-      kategori: "salam",
-      deskripsi: "Gerakan tangan seperti menyapa dari dekat dahi.",
-      image: "../assets/img/kamus/salam-halo.svg",
-      alt: "Ilustrasi isyarat halo"
+      kata: "1",
+      kategori: "angka",
+      deskripsi: "Isyarat angka 1.",
+      image: "../assets/img/kamus/1.png",
+      alt: "Isyarat angka 1"
     },
     {
       id: 6,
+      kata: "2",
+      kategori: "angka",
+      deskripsi: "Isyarat angka 2.",
+      image: "../assets/img/kamus/2.png",
+      alt: "Isyarat angka 2"
+    },
+    {
+      id: 7,
+      kata: "3",
+      kategori: "angka",
+      deskripsi: "Isyarat angka 3.",
+      image: "../assets/img/kamus/3.png",
+      alt: "Isyarat angka 3"
+    },
+    {
+      id: 8,
+      kata: "10",
+      kategori: "angka",
+      deskripsi: "Isyarat angka 10.",
+      image: "../assets/img/kamus/10.png",
+      alt: "Isyarat angka 10"
+    },
+    {
+      id: 9,
+      kata: "Bagaimana",
+      kategori: "salam",
+      deskripsi: "Isyarat kata 'Bagaimana'.",
+      image: "../assets/img/kamus/bagaimana.jpg",
+      alt: "Isyarat kata Bagaimana"
+    },
+    {
+      id: 10,
+      kata: "Dimana",
+      kategori: "salam",
+      deskripsi: "Isyarat kata 'Dimana'.",
+      image: "../assets/img/kamus/dimana.jpg",
+      alt: "Isyarat kata Dimana"
+    },
+    {
+      id: 11,
+      kata: "Hati-hati",
+      kategori: "salam",
+      deskripsi: "Isyarat kata 'Hati-hati'.",
+      image: "../assets/img/kamus/hati hati.jpg",
+      alt: "Isyarat kata Hati-hati"
+    },
+    {
+      id: 12,
+      kata: "Kamu",
+      kategori: "salam",
+      deskripsi: "Isyarat kata 'Kamu'.",
+      image: "../assets/img/kamus/kamu.jpg",
+      alt: "Isyarat kata Kamu"
+    },
+    {
+      id: 13,
+      kata: "Lupa",
+      kategori: "salam",
+      deskripsi: "Isyarat kata 'Lupa'.",
+      image: "../assets/img/kamus/lupa.jpg",
+      alt: "Isyarat kata Lupa"
+    },
+    {
+      id: 14,
+      kata: "Maaf",
+      kategori: "salam",
+      deskripsi: "Isyarat kata 'Maaf'.",
+      image: "../assets/img/kamus/maaf.jpg",
+      alt: "Isyarat kata Maaf"
+    },
+    {
+      id: 15,
+      kata: "Siapa",
+      kategori: "salam",
+      deskripsi: "Isyarat kata 'Siapa'.",
+      image: "../assets/img/kamus/siapa.jpg",
+      alt: "Isyarat kata Siapa"
+    },
+    {
+      id: 16,
       kata: "Terima Kasih",
       kategori: "salam",
-      deskripsi: "Ujung jari menyentuh dagu lalu bergerak ke depan.",
-      image: "../assets/img/kamus/salam-terima-kasih.svg",
-      alt: "Ilustrasi isyarat terima kasih"
+      deskripsi: "Isyarat kata 'Terima Kasih'.",
+      image: "../assets/img/kamus/terimakasih.jpg",
+      alt: "Isyarat kata Terima Kasih"
     }
   ],
   quiz: [
