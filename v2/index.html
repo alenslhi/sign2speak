@@ -1,5 +1,152 @@
-<!doctype html>
-<html>
-<head><title>Sign2Speak v2</title></head>
-<body><h1>V2 jalan</h1></body>
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign2Speak v2 - Belajar Bahasa Isyarat</title>
+    <meta
+      name="description"
+      content="Platform pembelajaran Bahasa Isyarat Indonesia yang interaktif, modern, dan mudah diakses."
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
+    <header class="site-header">
+      <div class="container nav-wrapper">
+        <a href="./index.html" class="brand" aria-label="Sign2Speak beranda">
+          <span class="brand-badge">S2S</span>
+          <span class="brand-text">Sign2Speak</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Buka menu"
+          aria-expanded="false"
+          aria-controls="primaryNav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="primary-nav" id="primaryNav" aria-label="Navigasi utama">
+          <a href="./index.html" class="active">Beranda</a>
+          <a href="./pages/kamus.html">Kamus</a>
+          <a href="./pages/latihan.html">Latihan</a>
+          <a href="./pages/tentang.html">Tentang</a>
+          <a href="#mulai" class="btn btn-sm btn-primary">Mulai Belajar</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <p class="eyebrow">Belajar Bahasa Isyarat Indonesia</p>
+            <h1>
+              Belajar Komunikasi Inklusif dengan Cara yang Lebih Interaktif
+            </h1>
+            <p class="lead">
+              Sign2Speak membantu kamu mengenal dasar bahasa isyarat dengan
+              materi terstruktur, latihan praktis, dan tampilan modern yang
+              nyaman dipelajari di desktop maupun mobile.
+            </p>
+            <div class="hero-actions">
+              <a href="./pages/kamus.html" class="btn btn-primary"
+                >Jelajahi Kamus</a
+              >
+              <a href="./pages/latihan.html" class="btn btn-outline"
+                >Coba Latihan</a
+              >
+            </div>
+          </div>
+
+          <div class="hero-card" aria-label="Ringkasan fitur utama">
+            <h2>Fitur Utama v2</h2>
+            <ul>
+              <li>Materi dasar isyarat harian</li>
+              <li>Tampilan bersih dan responsif</li>
+              <li>Quiz latihan dengan skor</li>
+              <li>Siap deploy ke GitHub Pages</li>
+            </ul>
+            <div class="hero-stat">
+              <div>
+                <strong>100%</strong>
+                <span>Static Site</span>
+              </div>
+              <div>
+                <strong>Fast</strong>
+                <span>Tanpa backend</span>
+              </div>
+              <div>
+                <strong>v2</strong>
+                <span>Rebuild UI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="mulai">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Mulai dari Dasar</p>
+            <h2>Alur Belajar yang Jelas</h2>
+            <p>
+              Gunakan alur ini supaya proses belajar lebih terarah dan konsisten.
+            </p>
+          </div>
+
+          <div class="cards-grid">
+            <article class="card">
+              <h3>1. Pelajari Kamus Dasar</h3>
+              <p>
+                Kenali alfabet, angka, dan kata-kata umum yang sering dipakai
+                dalam percakapan sehari-hari.
+              </p>
+              <a href="./pages/kamus.html" class="text-link">Buka Kamus</a>
+            </article>
+
+            <article class="card">
+              <h3>2. Latihan Interaktif</h3>
+              <p>
+                Uji pemahaman kamu dengan kuis singkat untuk mengingat bentuk
+                isyarat lebih cepat.
+              </p>
+              <a href="./pages/latihan.html" class="text-link">Mulai Latihan</a>
+            </article>
+
+            <article class="card">
+              <h3>3. Evaluasi Progres</h3>
+              <p>
+                Pantau skor latihan dan ulangi materi yang belum dikuasai agar
+                progresmu stabil.
+              </p>
+              <a href="./pages/tentang.html" class="text-link"
+                >Lihat Tentang Platform</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© 2026 Sign2Speak. Dibangun dengan HTML, CSS, dan JavaScript.</p>
+        <p>
+          Repository:
+          <a href="https://github.com/alenslhi/sign2speak" target="_blank"
+            >alenslhi/sign2speak</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+  </body>
 </html>
