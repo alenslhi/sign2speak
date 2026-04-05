@@ -48,9 +48,18 @@
 
       items.forEach(function (item) {
         const card = document.createElement("article");
-        card.className = "card";
+        card.className = "card kamus-card";
 
         card.innerHTML = `
+          <div class="kamus-image-wrap">
+            <img
+              class="kamus-image"
+              src="${item.image}"
+              alt="${item.alt || item.kata}"
+              loading="lazy"
+              onerror="this.src='../assets/img/kamus/placeholder.svg';"
+            />
+          </div>
           <span class="badge">${item.kategori}</span>
           <h3>${item.kata}</h3>
           <p>${item.deskripsi}</p>
@@ -83,6 +92,7 @@
   }
 
   function setupQuizPage() {
+    const STORAGE_KEY = "s2s_best_score_v1";
     const quizData = window.S2S_DATA?.quiz || [];
     const questionEl = document.getElementById("quizQuestion");
     const optionsEl = document.getElementById("quizOptions");
@@ -95,6 +105,21 @@
     let currentIndex = 0;
     let score = 0;
     let answered = false;
+    let bestScore = getBestScore();
+
+    function getBestScore() {
+      const value = localStorage.getItem(STORAGE_KEY);
+      const parsed = Number(value);
+      return Number.isFinite(parsed) ? parsed : 0;
+    }
+
+    function saveBestScore(value) {
+      localStorage.setItem(STORAGE_KEY, String(value));
+    }
+
+    function setScoreText() {
+      scoreEl.textContent = `Skor: ${score} | Best: ${bestScore}`;
+    }
 
     function renderQuestion() {
       answered = false;
@@ -103,7 +128,7 @@
 
       const item = quizData[currentIndex];
       progressEl.textContent = `Soal ${currentIndex + 1}/${quizData.length}`;
-      scoreEl.textContent = `Skor: ${score}`;
+      setScoreText();
       questionEl.textContent = item.question;
       optionsEl.innerHTML = "";
 
@@ -135,7 +160,7 @@
             }
           });
 
-          scoreEl.textContent = `Skor: ${score}`;
+          setScoreText();
           nextBtn.disabled = false;
         });
 
@@ -144,12 +169,18 @@
     }
 
     function finishQuiz() {
+      if (score > bestScore) {
+        bestScore = score;
+        saveBestScore(bestScore);
+      }
+
       questionEl.textContent = "Kuis selesai.";
       optionsEl.innerHTML = "";
       progressEl.textContent = `Soal ${quizData.length}/${quizData.length}`;
-      feedbackEl.textContent = `Skor akhir kamu: ${score}`;
+      feedbackEl.textContent = `Skor akhir kamu: ${score}. Skor terbaik: ${bestScore}.`;
       nextBtn.classList.add("hidden");
       restartBtn.classList.remove("hidden");
+      setScoreText();
     }
 
     nextBtn.addEventListener("click", function () {
